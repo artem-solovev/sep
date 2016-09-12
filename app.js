@@ -23,7 +23,10 @@ app.config( [ '$routeProvider', '$locationProvider', function( $routeProvider, $
 
     $routeProvider.when( '/', {
         templateUrl: 'views/home.html',
+    });
 
+    $routeProvider.when( '/dashboard', {
+        tempateUrl: 'views/dashboard.html'
     });
 
     $routeProvider.when( '/settings', {
