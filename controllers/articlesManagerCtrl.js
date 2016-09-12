@@ -8,8 +8,8 @@ app.controller( 'articlesManagerCtrl', [ 'articleService', 'dashboardService', '
     this.selectedJournal = {
     };
 
-    self.moveArticle = function( journalId, articleId ) {
-        console.info( "Do you wannd move your article with id " + articleId + " to journal with id " + journalId );
+    self.moveArticle = function( journalId, articleId, $index ) {
+        articleService.moveArticleTo( journalId, self.articleList[$index] );
     };
 
     self.update = function( article ) {

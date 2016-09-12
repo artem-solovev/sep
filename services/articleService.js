@@ -6,8 +6,6 @@ app.factory( 'articleService', [ '$firebaseArray', '$http', '$q', function( $fir
 
 
     articleService.getAllArticles = function() {
-        console.info( articles );
-
         return articles;
     };
 
@@ -24,8 +22,12 @@ app.factory( 'articleService', [ '$firebaseArray', '$http', '$q', function( $fir
         return articles.$save( article );
     };
 
-    articleService.moveArticleTo = function( journalId, articleId ) {
+    articleService.moveArticleTo = function( journalId, articleObj ) {
+        var journalRef = firebase.database().ref( 'articles/' + journalId );
+        var currentJournal = $firebaseArray( journalRef );
 
+        currentJournal.$add( articleObj );
+        articles.$remove( articleObj );
     };
 
     return articleService;

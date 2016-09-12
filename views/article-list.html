@@ -38,7 +38,7 @@
                     ng-options="journal.totalNumber for journal in articlesManagerCtl.journalList" 
                     name="journal"
                     style="width: 70px"
-                    ng-change="articlesManagerCtl.moveArticle( articlesManagerCtl.selectedJournal[article.$id].$id, article.$id )">
+                    ng-change="articlesManagerCtl.moveArticle( articlesManagerCtl.selectedJournal[article.$id].$id, article.$id, $index )">
                     </select>
                 </td>
                 <td   ng-show="!articlesManagerCtl.edit[article.$id]">{{article.email}}</td>
