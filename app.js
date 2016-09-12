@@ -26,7 +26,18 @@ app.config( [ '$routeProvider', '$locationProvider', function( $routeProvider, $
     });
 
     $routeProvider.when( '/dashboard', {
-        tempateUrl: 'views/dashboard.html'
+        templateUrl: 'views/dashboard.html',
+        controller: 'dashboardCtrl',
+        controllerAs: 'dashCtl',
+        resolve: {
+            "initialData": function( dashboardService ) {
+                return dashboardService.getAllJournals();
+            },
+            "currentAuth": [ "authService", function( authService ) {
+                var auth = authService.auth();
+                return auth.$requireSignIn();
+            }]
+        }
     });
 
     $routeProvider.when( '/settings', {
