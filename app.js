@@ -22,7 +22,7 @@ app.config( [ '$routeProvider', '$locationProvider', function( $routeProvider, $
     } );
 
     $routeProvider.when( '/', {
-        templateUrl: 'views/dashboard.html',
+        templateUrl: 'views/home.html',
 
     });
 
