@@ -1,8 +1,16 @@
-app.controller( 'articlesManagerCtrl', [ 'articleService', 'initialData', function( articleService, initialData ) {
+app.controller( 'articlesManagerCtrl', [ 'articleService', 'dashboardService', 'initialData', function( articleService, dashboardService, initialData ) {
 
     var self = this;
     self.edit = {};
     self.articleList = initialData;
+    self.journalList = dashboardService.getAllJournals();
+
+    this.selectedJournal = {
+    };
+
+    self.moveArticle = function( journalId, articleId ) {
+        console.info( "Do you wannd move your article with id " + articleId + " to journal with id " + journalId );
+    };
 
     self.update = function( article ) {
 

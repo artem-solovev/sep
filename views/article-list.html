@@ -10,12 +10,12 @@
     <table class="table table-hover">
         <thead>
             <tr>
-                <th class="text-center">ID</th>
                 <th class="text-center"><span class="glyphicon glyphicon-education"></span></th>
                 <th class="text-center">Title</th>
                 <th class="text-center"><span class="glyphicon glyphicon-tags"></span></th>
                 <th class="text-center"><span class="glyphicon glyphicon-file"></span></th>
                 <th class="text-center"><span class="glyphicon glyphicon-calendar"></span></th>
+                <th class="text-center"><span class="glyphicon glyphicon-book"></span></th>
                 <th class="text-center"><span class="glyphicon glyphicon-envelope"></span></th>
                 <th class="text-center"><span class="glyphicon glyphicon-paperclip"></span></th>
                 <th class="text-center"><span class="glyphicon glyphicon-flag"></span></th>
@@ -24,16 +24,23 @@
         </thead>
         <tbody>
             <tr ng-repeat="article in articlesManagerCtl.articleList | filter: search: strict ">
-
-                <td>{{$index}}</td>
                 <td   ng-show="!articlesManagerCtl.edit[article.$id]">{{article.authors}}</td>
-                <td   ng-show="!managerCtl.edit[article.$id]" ng-switch on="article.priority">
+                <td   ng-show="!articlesManagerCtl.edit[article.$id]" ng-switch on="article.priority">
                     <span highlight articlename="{{article.title}}" ng-switch-when="true"></span>
                     <span ng-switch-default> {{article.title}}</span>
                 </td>
                 <td   ng-show="!articlesManagerCtl.edit[article.$id]">{{article.category.name}}</td>
                 <td   ng-show="!articlesManagerCtl.edit[article.$id]">{{article.pages}}</td>
                 <td   ng-show="!articlesManagerCtl.edit[article.$id]">{{article.date | date: 'yyyy-MM-dd'}}</td>
+                <td   ng-show="!articlesManagerCtl.edit[article.$id]">
+                    <select class="form-control" 
+                    ng-model='articlesManagerCtl.selectedJournal[article.$id]' 
+                    ng-options="journal.totalNumber for journal in articlesManagerCtl.journalList" 
+                    name="journal"
+                    style="width: 70px"
+                    ng-change="articlesManagerCtl.moveArticle( articlesManagerCtl.selectedJournal[article.$id].$id, article.$id )">
+                    </select>
+                </td>
                 <td   ng-show="!articlesManagerCtl.edit[article.$id]">{{article.email}}</td>
                 <td   ng-show="!articlesManagerCtl.edit[article.$id]">{{article.files}}</td>
                 <td   ng-show="!articlesManagerCtl.edit[article.$id]">{{article.priority}}</td>
@@ -50,6 +57,7 @@
                 <td   ng-show="articlesManagerCtl.edit[article.$id]"><input type="text" ng-model="article.category.name"></td>
                 <td   ng-show="articlesManagerCtl.edit[article.$id]"><input type="text" ng-model="article.pages"></td>
                 <td   ng-show="articlesManagerCtl.edit[article.$id]"><input type="text" ng-model="article.date"></td>
+                <td   ng-show="articlesManagerCtl.edit[article.$id]"></td>
                 <td   ng-show="articlesManagerCtl.edit[article.$id]"><input type="text" ng-model="article.email"></td>
                 <td   ng-show="articlesManagerCtl.edit[article.$id]"><input type="text" ng-model="article.files"></td>
                 <td   ng-show="articlesManagerCtl.edit[article.$id]">
