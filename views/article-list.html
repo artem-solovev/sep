@@ -1,0 +1,68 @@
+<div class="col-md-12 col-sm-12 col-lg-12">
+    <div>
+        <span>Search: </span> <input type="text" ng-model="search.$">
+        <span>Search by Authors:</span>  <input type="text" ng-model="search.authors">
+        <span>Search by Title:</span>  <input type="text" ng-model="search.title">
+        <span>Search by Category:</span>  <input type="text" ng-model="search.category.name">
+        <span>Exact Match?</span> <input type="checkbox" ng-model="strict">
+        <button ng-click="search = undefined"> Clear Filter </button>
+    </div>
+    <table class="table table-hover">
+        <thead>
+            <tr>
+                <th class="text-center">ID</th>
+                <th class="text-center"><span class="glyphicon glyphicon-education"></span></th>
+                <th class="text-center">Title</th>
+                <th class="text-center"><span class="glyphicon glyphicon-tags"></span></th>
+                <th class="text-center"><span class="glyphicon glyphicon-file"></span></th>
+                <th class="text-center"><span class="glyphicon glyphicon-calendar"></span></th>
+                <th class="text-center"><span class="glyphicon glyphicon-envelope"></span></th>
+                <th class="text-center"><span class="glyphicon glyphicon-paperclip"></span></th>
+                <th class="text-center"><span class="glyphicon glyphicon-flag"></span></th>
+                <th class="text-center"><span class="glyphicon glyphicon-list"></span></th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr ng-repeat="article in articlesManagerCtl.articleList | filter: search: strict ">
+
+                <td>{{$index}}</td>
+                <td   ng-show="!articlesManagerCtl.edit[article.$id]">{{article.authors}}</td>
+                <td   ng-show="!managerCtl.edit[article.$id]" ng-switch on="article.priority">
+                    <span highlight articlename="{{article.title}}" ng-switch-when="true"></span>
+                    <span ng-switch-default> {{article.title}}</span>
+                </td>
+                <td   ng-show="!articlesManagerCtl.edit[article.$id]">{{article.category.name}}</td>
+                <td   ng-show="!articlesManagerCtl.edit[article.$id]">{{article.pages}}</td>
+                <td   ng-show="!articlesManagerCtl.edit[article.$id]">{{article.date | date: 'yyyy-MM-dd'}}</td>
+                <td   ng-show="!articlesManagerCtl.edit[article.$id]">{{article.email}}</td>
+                <td   ng-show="!articlesManagerCtl.edit[article.$id]">{{article.files}}</td>
+                <td   ng-show="!articlesManagerCtl.edit[article.$id]">{{article.priority}}</td>
+                <td   ng-show="!articlesManagerCtl.edit[article.$id]">
+                    <div class="btn-group-vertical btn-group-sm tex-center" role="group" aria-label="...">
+                        <button class="btn btn-primary" ng-click="articlesManagerCtl.edit[article.$id] = !articlesManagerCtl.edit[article.$id]"><span class="glyphicon glyphicon-pencil"></span></button>
+                        <button class="btn btn-danger" ng-click="articlesManagerCtl.delete(article)"><span class="glyphicon glyphicon-trash"></span></button>
+                    </div>
+                </td>
+
+                <!-- BEGIN temporary hidden-->
+                <td   ng-show="articlesManagerCtl.edit[article.$id]"><input type="text" ng-model="article.authors"></td>
+                <td   ng-show="articlesManagerCtl.edit[article.$id]"><input type="text" ng-model="article.title"></td>
+                <td   ng-show="articlesManagerCtl.edit[article.$id]"><input type="text" ng-model="article.category.name"></td>
+                <td   ng-show="articlesManagerCtl.edit[article.$id]"><input type="text" ng-model="article.pages"></td>
+                <td   ng-show="articlesManagerCtl.edit[article.$id]"><input type="text" ng-model="article.date"></td>
+                <td   ng-show="articlesManagerCtl.edit[article.$id]"><input type="text" ng-model="article.email"></td>
+                <td   ng-show="articlesManagerCtl.edit[article.$id]"><input type="text" ng-model="article.files"></td>
+                <td   ng-show="articlesManagerCtl.edit[article.$id]">
+                    <input type="checkbox" ng-model="article.priority" [ng-change="article.priority"]>
+                </td>
+                <td  ng-show="articlesManagerCtl.edit[article.$id]">
+                    <div class="btn-group-vertical btn-group-sm tex-center" role="group" aria-label="...">
+                        <button class="btn btn-primary" ng-click="articlesManagerCtl.update(article);articlesManagerCtl.edit[article.$id] = !articlesManagerCtl.edit[article.$id]"><span class="glyphicon glyphicon-floppy-disk"></span></button>
+                        <button class="btn btn-warning" ng-click="articlesManagerCtl.edit[article.$id] = !articlesManagerCtl.edit[article.$id]"><span class="glyphicon glyphicon-floppy-remove"></span></button>
+                    </div>
+                </td>
+                <!-- END temporary hidden-->
+            </tr>
+        </tbody>
+    </table>
+</div>

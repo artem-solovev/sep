@@ -1,0 +1,44 @@
+/*
+------------------------------
+>>>> TABLE OF CONTENTS:
+------------------------------
+1.0 Global
+2.0 Dashboard
+
+------------------------------
+*/
+
+
+
+/* 1.0 GLOBAL */
+body {
+    padding-top: 50px;
+}
+
+.starter-template {
+    padding:40px 15px;
+}
+
+/* 2.0 DASHBOARD */
+.sidenav {
+    height: 100%;
+    width: 0;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    overflow-x: hidden;
+    transition: 0.5s;
+    background-color: rgb(51, 51, 51);
+    padding-top: 51px;
+}
+
+#main {
+    transition: margin-left .5s;
+    padding: 10px;
+}
+
+@media screen and (max-height: 450px) {
+    .sidenav {padding-top: 15px;}
+    .sidenav a {font-size: 18px;}
+}

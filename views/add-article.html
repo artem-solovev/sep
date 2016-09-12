@@ -1,0 +1,157 @@
+<div class="row">
+    <div class="col-md-6 col-sm-8 col-lg-6">
+        <script type="text/ng-template" id="error-messages">
+<div ng-message='required'> This Field is required </div>
+<div ng-message='minlength'> Too short </div>
+<div ng-message='maxlength'> Too long </div>
+        </script>
+
+        <div class="panel panel-default">
+            <div class="panel-heading"><h3>Add article</h3></div>
+            <div class="panel-body">
+
+                <form class="form" role="form" id="addArticleForm" ng-submit='addArticleForm.$valid && addArticleCtl.submitForm(addArticleCtl.articleForm)' novalidate name="addArticleForm">
+
+                    <div class="row">
+                        <div class="col-md-6 col-sm-6 col-xs-12 col-lg-6">
+                            <div class="form-group" ng-class="{'has-error': addArticleForm.authors.$touched && addArticleForm.authors.$invalid, 'has-success': addArticleForm.authors.$touched && addArticleForm.authors.$valid }">
+                                <label for="authors" class="control-label">Authors</label>
+                                <input type="text" ng-model='addArticleCtl.articleForm.authors' required class="form-control"  name="authors" placeholder="Author (s)" ng-minlength='3' ng-maxlength='127'>
+                                <div ng-messages="addArticleForm.authors.$dirty && addArticleForm.authors.$error">
+                                    <div ng-message='required'> Required </div>
+                                    <div ng-message='minlength'>At least 3 chars long</div>
+                                    <div ng-message='maxlength'>Cannot be longer than 127 chars</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-sm-6 col-xs-12 col-lg-6">
+                            <div class="form-group" ng-class="{'has-error': addArticleForm.title.$touched && addArticleForm.title.$invalid, 'has-success': addArticleForm.title.$touched && addArticleForm.title.$valid }">
+                                <label for="title" class="control-label">Title</label>
+                                <input type="textarea"  required ng-model='addArticleCtl.articleForm.title' class="form-control" name="title" placeholder="Title for article"  ng-minlength='3' ng-maxlength='255'>
+                                <div ng-messages="addArticleForm.title.$dirty && addArticleForm.title.$error">
+                                    <div ng-message='required'> Required </div>
+                                    <div ng-message='minlength'>At least 3 chars long</div>
+                                    <div ng-message='maxlength'>Cannot be longer than 255 chars</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-6 col-sm-6 col-xs-12 col-lg-6">
+                            <div class="form-group" ng-class="{'has-error': addArticleForm.written.$touched && addArticleForm.written.$invalid, 'has-success': addArticleForm.written.$touched && addArticleForm.written.$valid }">
+                                <label for="written" required class=" control-label">Date of writing</label>
+                                <input type="text" required ng-pattern='/^[0-9]{4}-(0[1-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1])$/' ng-model='addArticleCtl.articleForm.date' class="form-control" name="written" placeholder="yyyy-MM-dd">
+                                <div ng-messages="addArticleForm.written.$dirty && addArticleForm.written.$error">
+                                    <div ng-message="pattern">Please enter the date in the yyyy-mm-dd format</div>
+                                    <div ng-messages-include="error-messages"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-sm-6 col-xs-12 col-lg-6">
+                            <div class="form-group" ng-class="{'has-error': addArticleForm.category.$touched && addArticleForm.category.$invalid, 'has-success': addArticleForm.category.$touched && addArticleForm.category.$valid }">
+                                <label for="category"  class="control-label">Category</label>
+                                <select class="form-control" required ng-model='addArticleCtl.selectedOption' ng-options="category.name for category in addArticleCtl.categories track by category.id" data-width="100%" name="category">
+                                </select>
+                                <div ng-messages="addArticleForm.category.$dirty && addArticleForm.category.$error">
+                                    <div ng-messages-include="error-messages"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-6 col-sm-6 col-xs-12 col-lg-6">
+                            <div class="form-group" ng-class="{'has-error': addArticleForm.email.$touched && addArticleForm.email.$invalid, 'has-success': addArticleForm.email.$touched && addArticleForm.email.$valid }">
+                                <label for="articleEmail" class=" control-label">Email</label>
+                                <input type="email" ng-model='addArticleCtl.articleForm.email' required class="form-control" name="articleEmail" placeholder="Email Info">
+                                <p class="help-block">The contact email</p>
+                                <div ng-messages="addArticleForm.email.$dirty && addArticleForm.email.$error">
+                                    <div ng-messages-include="error-messages"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-sm-6 col-xs-12 col-lg-6">
+                            <div class="col-md-3 col-sm-3 col-xs-6 col-lg-3">
+                                <div class="form-group" ng-class="{'has-error': addArticleForm.priority.$touched && addArticleForm.priority.$invalid, 'has-success': addArticleForm.priority.$touched && addArticleForm.priority.$valid }">
+                                    <label for="priority" class="control-label">Priority</label>
+                                    <br>
+                                    <input type="checkbox" ng-model='addArticleCtl.articleForm.priority' name="priority" >
+                                    <div ng-messages="addArticleForm.priority.$dirty && addArticleForm.priority.$error">
+                                        <div ng-messages-include="error-messages"></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-3 col-sm-3 col-xs-6 col-lg-3">
+                                <div class="form-group"  ng-class="{'has-error': addArticleForm.pages.$touched && addArticleForm.pages.$invalid, 'has-success': addArticleForm.pages.$touched && addArticleForm.pages.$valid }">
+                                    <label for="pages" class="control-label">Pages</label>
+                                    <br>
+                                    <input type="number" required ng-model='addArticleCtl.articleForm.pages' name="pages" >
+
+                                    <div ng-messages="addArticleForm.pages.$dirty && addArticleForm.pages.$error">
+                                        <div ng-messages-include="error-messages"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-6 col-sm-6 col-xs-12 col-lg-6">
+                            <div class="form-group">
+                                <label class="btn btn-default" for="my-file-selector">
+                                    <span class="glyphicon glyphicon-cloud-upload"></span>
+                                    <input id="my-file-selector" type="file" style="display:none;" accept=".doc, .rtf, .txt" onchange="$('#upload-file-info').html($(this).val());" ng-model="files" ngf-select ngf-keep="true" ngf-keep-distinct="true">
+                                    Upload file
+                                </label>
+                                <span class='label label-info' id="upload-file-info"></span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <hr />
+
+                    <div class="row">
+                        <div class="col-md-6 col-sm-6 col-xs-12 col-lg-6">
+                            <div class="form-group">
+                                <button  type="submit" ng-disabled="addArticleForm.$invalid" class="btn btn-primary">Submit</button>
+                                <button type="reset" class="btn btn-primary">Reset</button>
+                            </div>
+                        </div>
+                    </div>
+
+                </form>
+
+            </div>
+
+        </div>
+
+    </div>
+    <div class="col-md-6 col-sm-8 col-lg-6">
+        <div class="jumbotron">
+            <h1>Empty useful space</h1>
+            <p>Something interesting</p>
+            <ul class="list-group">
+                <li class="list-group-item">
+                    <span class="badge">14</span>
+                    <span class="glyphicon glyphicon-ok"></span>
+                    Cras justo odio
+                </li>
+                <li class="list-group-item">
+                    <span class="badge">23</span>
+                    <span class="glyphicon glyphicon-ok"></span>
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
+                </li>
+                <li class="list-group-item">
+                    <span class="badge">78</span>
+                    <span class="glyphicon glyphicon-ok"></span>
+                    Maecenas venenatis eu tortor egestas pulvinar. Etiam vel lorem posuere, elementum lorem id, rhoncus lorem. Praesent at vulputate elit. Pellentesque aliquet dui ut purus molestie tincidunt. Cras tincidunt dui urna, in vulputate dolor lobortis nec. In at aliquet ante, ut sollicitudin nisl. Morbi lacus ligula, viverra id faucibus sit amet, venenatis bibendum orci. Sed quis cursus ligula. In laoreet dignissim libero, vitae facilisis quam accumsan sed. Donec diam lacus, blandit at fringilla a, maximus vitae leo. Aliquam interdum nunc orci, ac aliquet lectus aliquam a. Sed interdum rhoncus nisi aliquet faucibus. Nullam ultricies tellus non libero auctor, nec elementum nisi pellentesque. Curabitur pellentesque sapien augue, non placerat magna rutrum non. Praesent tristique lectus neque, sit amet sagittis justo malesuada at. Sed pellentesque nunc sit amet porta lacinia.
+                </li>
+            </ul>
+            <p><a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a></p>
+        </div>
+    </div>
+</div>
+<div class="row">
+</div>
+</div>
