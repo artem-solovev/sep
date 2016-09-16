@@ -30,7 +30,7 @@
 
         <!-- List group -->
         <div class="list-group">
-            <a href="#" class="list-group-item" ng-repeat="journal in dashCtl.journalList">
+            <a href="#" class="list-group-item" ng-repeat="journal in dashCtl.journalList" ng-click="dashCtl.getArticlesFromJournal( $index )">
                 <h4 class="list-group-item-heading">{{journal.date}} #{{journal.yearNumber}} ({{journal.totalNumber}})</h4>
                 <p class="list-group-item-text"><span class="label label-success">15 articles</span></p>
             </a>
@@ -79,11 +79,10 @@
                         </tr>
                     </thead>
                     <tbody>
-
-                        <tr>
+                        <tr ng-repeat="article in dashCtl.currentJournal">
 
                             <td class="text-center">1</td>
-                            <td>Transdisciplinary perspectives on environmental sustainability: a resource base and framework for IT-enabled business transformation</td>
+                            <td>{{article.title}}</td>
                             <td class="success text-center"><span class="glyphicon glyphicon-ok"></span></td>
                             <td class="success text-center"><span class="glyphicon glyphicon-ok"></span></td>
                             <td class="danger text-center"><span class="glyphicon glyphicon-remove"></span></td>
@@ -92,7 +91,9 @@
                             <td>
 
                                 <div class="btn-group-vertical btn-group-sm tex-center" role="group" aria-label="...">
-                                    <button class="btn btn-default"><span class="glyphicon glyphicon-eye-open"></span></button>
+                                    <button class="btn btn-default">
+                                    <span class="glyphicon glyphicon-eye-open"></span>
+                                    </button>
                                     <button class="btn btn-primary"><span class="glyphicon glyphicon-pencil"></span></button>
                                     <button class="btn btn-danger"><span class="glyphicon glyphicon-trash"></span></button>
                                 </div>
@@ -187,68 +188,70 @@
 
                 </div> <!-- panel -->
 
-                <!-- Comments Form -->
-                <div class="well">
-                    <h4>Leave a Comment:</h4>
-                    <form role="form">
-                        <div class="form-group">
-                            <textarea class="form-control" rows="3"></textarea>
+                <div id="chat" class="col-xs-12" ng-controller="commentsCtrl">
+
+                    <!-- Comments -->
+                    <div id="comments" class="comments" scroll-glue-bottom="glued">
+
+                        <div class="media well" ng-repeat="comment in comments">
+                            <a class="pull-left" href="#" ng-show="false">
+                                <!--span class="glyphicon glyphicon-user"></span-->
+                                <img class="media-object" src="http://agbonclick.com/components/com_community/assets/user_thumb.png" alt="...">
+                            </a>
+                            <div class="media-body">
+                                <h4 class="media-heading">{{ comment.author }}
+                                    <small>{{ comment.date | date:'medium' }}</small>
+                                    <small class="glyphicon glyphicon-pencil" style="cursor:pointer" ng-click="editMsg($index)" title="Edit message from {{comment.author}}"></small>
+                                    <small class="glyphicon glyphicon-trash" style="cursor:pointer" ng-click="removeMsg($index)" title="Delete message from {{comment.author}}"></small>
+                                </h4>
+
+                                <p ng-show="!edit[$index]">{{ comment.text }}</p>
+
+                                <textarea class="form-control" rows="3" ng-model="comment.text" ng-show="edit[$index]" style="resize:vertical"></textarea>
+
+                                <br ng-show="edit[$index]"/>
+
+                                <div class="btn-group btn-group-sm" role="group" ng-show="edit[$index]">
+                                    <button type="button" class="btn btn-default" ng-click="edit[$index] = !edit[$index]" ng-show="edit[$index]">Cansel</button>
+                                    <button type="button" class="btn btn-info" ng-click="edit[$index] = !edit[$index]" ng-show="edit[$index]">Save</button>
+                                </div>
+
+                                <br ng-show="edit[$index]"/><br ng-show="edit[$index]"/>
+
+                                <div class="attachements" ng-show="comment.files != null">
+                                    <span class="glyphicon glyphicon-file"></span>
+                                    <a ng-href="{{file.fullPath}}" ng-repeat="file in comment.files" style="text-decoration:none" download>
+                                        <span class="label label-info" title="Download {{ file.name }}">{{ file.name }}</span>
+                                    </a>
+                                </div> <!-- .attachements -->
+                            </div>
                         </div>
-                        <input type="file" name="file" class="inputimg" id="nameImg" accept="image/*">
-                        <br />
-                        <button type="submit" class="btn btn-primary">Submit</button>
-                    </form>
-                </div>
 
-                <hr>
+                        <div id="endOfComments"></div> <!-- go to when ready -->
 
-                <!-- Posted Comments -->
+                    </div><!-- Comments -->
 
-                <!-- Comment -->
-                <div class="media">
-                    <a class="pull-left" href="#">
-                        <span class="glyphicon glyphicon-user"></span>
-                    </a>
-                    <div class="media-body">
-                        <h4 class="media-heading">Artem Solovev
-                            <small>August 25, 2014 at 9:30 PM</small>
-                            <small class="glyphicon glyphicon-pencil"></small>
-                            <small class="glyphicon glyphicon-trash"></small>
-                        </h4>
-                        <p>Cras sit amet nibh libero, in gravida nulla. 
-                            Nulla vel metus scelerisque ante sollicitudin commodo. 
-                            Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. 
-                            Fusce condimentum nunc ac nisi vulputate fringilla. 
-                            Donec lacinia congue felis in faucibus.
-                        <p>
-                            <span class="glyphicon glyphicon-file"></span>
-                            <a href="#"><span class="label label-info">cover_letter.txt</span></a>
-                            <a href="#"><span class="label label-info">article.txt</span></a>
-                    </div>
-                </div><!-- Comment -->
 
-                <!-- Comment -->
-                <div class="media">
-                    <a class="pull-left" href="#">
-                        <span class="glyphicon glyphicon-user"></span>
-                    </a>
-                    <div class="media-body">
-                        <h4 class="media-heading">Ann Void
-                            <small>August 25, 2014 at 9:30 PM</small>
-                            <small class="glyphicon glyphicon-pencil"></small>
-                            <small class="glyphicon glyphicon-trash"></small>
-                        </h4>
-                        <p>Cras sit amet nibh libero, in gravida nulla. 
-                            Nulla vel metus scelerisque ante sollicitudin commodo. 
-                            Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. 
-                            Fusce condimentum nunc ac nisi vulputate fringilla. 
-                            Donec lacinia congue felis in faucibus.
-                        <p>
-                            <span class="glyphicon glyphicon-file"></span>
-                            <a href="#"><span class="label label-info">cover_letter.txt</span></a>
-                            <a href="#"><span class="label label-info">article.txt</span></a>
-                    </div>
-                </div><!-- Comment -->
+                    <!-- comment form -->
+                    <div id="submitForm" class="well" style="margin-bottom:0px">
+                        <h4>Leave a Comment:</h4>
+
+                        <form role="form">
+                            <div class="form-group">
+                                <textarea class="form-control" rows="3" ng-model="addMe" style="resize:vertical"></textarea>
+                            </div>
+
+                            <input type="file" name="file" class="inputimg" id="nameImg" accept="image/*">
+
+                            <br />
+
+                            <button type="submit" class="btn btn-primary" ng-click="sendComment()">Submit</button>
+                        </form>
+                    </div> <!-- -->
+
+
+                </div> <!-- commentsCtrl -->
+
 
             </div> <!-- .row -->
         </div> <!-- .col-xs-6 -->
