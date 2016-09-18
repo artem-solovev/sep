@@ -6,6 +6,7 @@ app.factory( 'articleService', [ '$firebaseArray', '$http', '$q', function( $fir
 
 
     articleService.getAllArticles = function() {
+        console.log( articles );
         return articles;
     };
 

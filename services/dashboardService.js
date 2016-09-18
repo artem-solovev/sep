@@ -20,5 +20,13 @@ app.factory( 'dashboardService', [ '$firebaseArray', '$http', '$q', function( $f
         return journal;
     };
 
+    dashboardService.unassignArticle = function( articleObj, journalId ) {
+        var others = $firebaseArray( firebase.database().ref( 'articles/others' ) );
+        var neededArticle = firebase.database().ref( 'articles/' + journalId + '/' + articleObj.$id );
+
+        others.$add( articleObj );
+        neededArticle.remove();
+    };
+
     return dashboardService;
 }]);

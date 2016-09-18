@@ -6,12 +6,14 @@ app.controller( 'dashboardCtrl', [ 'dashboardService', 'initialData', '$scope', 
     this.journalForm = [];
 
     self.currentJournal = {};
-    
+
+    self.currentJournalId = null;
+
     self.currentArticle = null;
 
     self.getArticlesFromJournal = function( $index ) {
-        var journalId = self.journalList[$index].$id;
-        self.currentJournal = dashboardService.getCurrentJournal( journalId );
+        self.currentJournalId = self.journalList[$index].$id;
+        self.currentJournal = dashboardService.getCurrentJournal( self.currentJournalId );
         console.warn( "self.currentJournal ");
         console.warn( self.currentJournal );
     };
@@ -24,10 +26,16 @@ app.controller( 'dashboardCtrl', [ 'dashboardService', 'initialData', '$scope', 
             alert( 'An error occurred ' + error.statusText );
         });
     };
-    
+
     self.showArticleRoom = function( $index ) {
         self.currentArticle = self.currentJournal[$index];
         console.log( "$index " + angular.toJson( self.currentJournal[$index] ) );
+    };
+
+    self.unassignArticle = function( $index ) {
+        if ( confirm("Do you wanna move it to unsorted articles?") == true ) {
+            dashboardService.unassignArticle( self.currentJournal[$index], self.currentJournalId );
+        }
     };
 
 } ]);
