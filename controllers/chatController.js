@@ -57,10 +57,10 @@ app.controller( "commentsCtrl", function( $scope, $timeout, $location, $anchorSc
 
         $scope.addMe = "";
 
-        $timeout(function() {
+        /*$timeout(function() {
             $location.hash('endOfComments');
             $anchorScroll();
-        })
+        })*/
 
     };
 
