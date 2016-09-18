@@ -9,7 +9,9 @@ app.controller( 'articlesManagerCtrl', [ 'articleService', 'dashboardService', '
     };
 
     self.moveArticle = function( journalId, articleId, $index ) {
-        articleService.moveArticleTo( journalId, self.articleList[$index] );
+        if ( confirm("Do you wanna move this article to journal ?") == true ) {
+            articleService.moveArticleTo( journalId, self.articleList[$index] );
+        }
     };
 
     self.update = function( article ) {
