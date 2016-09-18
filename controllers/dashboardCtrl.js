@@ -6,12 +6,14 @@ app.controller( 'dashboardCtrl', [ 'dashboardService', 'initialData', '$scope', 
     this.journalForm = [];
 
     self.currentJournal = {};
+    
+    self.currentArticle = null;
 
     self.getArticlesFromJournal = function( $index ) {
         var journalId = self.journalList[$index].$id;
         self.currentJournal = dashboardService.getCurrentJournal( journalId );
-        console.warn( "$scope.currentJournal ");
-        console.warn( $scope.currentJournal );
+        console.warn( "self.currentJournal ");
+        console.warn( self.currentJournal );
     };
 
     self.createJournal = function( journal ) {
@@ -21,6 +23,11 @@ app.controller( 'dashboardCtrl', [ 'dashboardService', 'initialData', '$scope', 
         }, function( error ) {
             alert( 'An error occurred ' + error.statusText );
         });
+    };
+    
+    self.showArticleRoom = function( $index ) {
+        self.currentArticle = self.currentJournal[$index];
+        console.log( "$index " + angular.toJson( self.currentJournal[$index] ) );
     };
 
 } ]);
