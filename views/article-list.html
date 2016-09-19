@@ -1,17 +1,17 @@
 <div class="col-md-12 col-sm-12 col-lg-12">
     <div>
-        <span>Search: </span> <input type="text" ng-model="search.$">
-        <span>Search by Authors:</span>  <input type="text" ng-model="search.authors">
-        <span>Search by Title:</span>  <input type="text" ng-model="search.title">
-        <span>Search by Category:</span>  <input type="text" ng-model="search.category.name">
-        <span>Exact Match?</span> <input type="checkbox" ng-model="strict">
-        <button ng-click="search = undefined"> Clear Filter </button>
+        <span translate="ARTICLELIST.SEARCH">Search: </span> <input type="text" ng-model="search.$">
+        <span translate="ARTICLELIST.SEARCH_BYAUTHORS"></span>  <input type="text" ng-model="search.authors">
+        <span translate="ARTICLELIST.SEARCH_BYTITLE"></span>  <input type="text" ng-model="search.title">
+        <span translate="ARTICLELIST.SEARCH_BYCAT"></span>  <input type="text" ng-model="search.category.name">
+        <span translate="ARTICLELIST.SEARCH_EXACTMATCH"></span> <input type="checkbox" ng-model="strict">
+        <button class="btn btn-default" ng-click="search = undefined" translate="ARTICLELIST.SEARCH_CLEARFILTER"></button>
     </div>
     <table class="table table-hover">
         <thead>
             <tr>
                 <th class="text-center"><span class="glyphicon glyphicon-education"></span></th>
-                <th class="text-center">Title</th>
+                <th class="text-center" translate="ARTICLELIST.TABLE_TITLE"></th>
                 <th class="text-center"><span class="glyphicon glyphicon-tags"></span></th>
                 <th class="text-center"><span class="glyphicon glyphicon-file"></span></th>
                 <th class="text-center"><span class="glyphicon glyphicon-calendar"></span></th>

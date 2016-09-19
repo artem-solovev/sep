@@ -63,5 +63,16 @@ var translationsEN = {
         MESSAGE_REQUIREDFIELD: "This Field is required",
         MESSAGE_SHORT: "Too short",
         MESSAGE_LONG: "Too long"
+    },
+
+    ARTICLELIST:{
+        SEARCH: "Search",
+        SEARCH_BYAUTHORS: "Search by Authors:",
+        SEARCH_BYTITLE: "Search by Title:",
+        SEARCH_BYCAT: "Search by Category:",
+        SEARCH_EXACTMATCH: "Exact Match?",
+        SEARCH_CLEARFILTER: "Clear Filter",
+
+        TABLE_TITLE: "Title"
     }
 };

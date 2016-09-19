@@ -63,5 +63,16 @@ var translationsRU = {
         MESSAGE_REQUIREDFIELD: "Это поле является обязательным",
         MESSAGE_SHORT: "Слишком короткое значение",
         MESSAGE_LONG: "Слишком длинное значение"
+    },
+
+    ARTICLELIST:{
+        SEARCH: "Поиск",
+        SEARCH_BYAUTHORS: "Искать по автору:",
+        SEARCH_BYTITLE: "Искать в заголовку:",
+        SEARCH_BYCAT: "Искать по категории:",
+        SEARCH_EXACTMATCH: "Точное совпадение?",
+        SEARCH_CLEARFILTER: "Сбросить фильтр",
+        
+         TABLE_TITLE: "Название статьи"
     }
 };
