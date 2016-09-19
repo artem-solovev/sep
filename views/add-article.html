@@ -15,7 +15,7 @@
                     <div class="row">
                         <div class="col-md-6 col-sm-6 col-xs-12 col-lg-6">
                             <div class="form-group" ng-class="{'has-error': addArticleForm.authors.$touched && addArticleForm.authors.$invalid, 'has-success': addArticleForm.authors.$touched && addArticleForm.authors.$valid }">
-                                <label for="authors" class="control-label">Authors</label>
+                                <label for="authors" class="control-label">Authors <sup style="color:red">*</sup></label>
                                 <input type="text" ng-model='addArticleCtl.articleForm.authors' required class="form-control"  name="authors" placeholder="Author (s)" ng-minlength='3' ng-maxlength='127'>
                                 <div ng-messages="addArticleForm.authors.$dirty && addArticleForm.authors.$error">
                                     <div ng-message='required'> Required </div>
@@ -26,7 +26,7 @@
                         </div>
                         <div class="col-md-6 col-sm-6 col-xs-12 col-lg-6">
                             <div class="form-group" ng-class="{'has-error': addArticleForm.title.$touched && addArticleForm.title.$invalid, 'has-success': addArticleForm.title.$touched && addArticleForm.title.$valid }">
-                                <label for="title" class="control-label">Title</label>
+                                <label for="title" class="control-label">Title <sup style="color:red">*</sup></label>
                                 <input type="textarea"  required ng-model='addArticleCtl.articleForm.title' class="form-control" name="title" placeholder="Title for article"  ng-minlength='3' ng-maxlength='255'>
                                 <div ng-messages="addArticleForm.title.$dirty && addArticleForm.title.$error">
                                     <div ng-message='required'> Required </div>
@@ -40,7 +40,7 @@
                     <div class="row">
                         <div class="col-md-6 col-sm-6 col-xs-12 col-lg-6">
                             <div class="form-group" ng-class="{'has-error': addArticleForm.written.$touched && addArticleForm.written.$invalid, 'has-success': addArticleForm.written.$touched && addArticleForm.written.$valid }">
-                                <label for="written" required class=" control-label">Date of writing</label>
+                                <label for="written" required class=" control-label">Date of writing <sup style="color:red">*</sup></label>
                                 <input type="text" required ng-pattern='/^[0-9]{4}-(0[1-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1])$/' ng-model='addArticleCtl.articleForm.date' class="form-control" name="written" placeholder="yyyy-MM-dd">
                                 <div ng-messages="addArticleForm.written.$dirty && addArticleForm.written.$error">
                                     <div ng-message="pattern">Please enter the date in the yyyy-mm-dd format</div>
@@ -50,7 +50,7 @@
                         </div>
                         <div class="col-md-6 col-sm-6 col-xs-12 col-lg-6">
                             <div class="form-group" ng-class="{'has-error': addArticleForm.category.$touched && addArticleForm.category.$invalid, 'has-success': addArticleForm.category.$touched && addArticleForm.category.$valid }">
-                                <label for="category"  class="control-label">Category</label>
+                                <label for="category"  class="control-label">Category <sup style="color:red">*</sup></label>
                                 <select class="form-control" required ng-model='addArticleCtl.selectedOption' ng-options="category.name for category in addArticleCtl.categories track by category.id" data-width="100%" name="category">
                                 </select>
                                 <div ng-messages="addArticleForm.category.$dirty && addArticleForm.category.$error">
@@ -63,7 +63,7 @@
                     <div class="row">
                         <div class="col-md-6 col-sm-6 col-xs-12 col-lg-6">
                             <div class="form-group" ng-class="{'has-error': addArticleForm.email.$touched && addArticleForm.email.$invalid, 'has-success': addArticleForm.email.$touched && addArticleForm.email.$valid }">
-                                <label for="articleEmail" class=" control-label">Email</label>
+                                <label for="articleEmail" class=" control-label">Email <sup style="color:red">*</sup></label>
                                 <input type="email" ng-model='addArticleCtl.articleForm.email' required class="form-control" name="articleEmail" placeholder="Email Info">
                                 <p class="help-block">The contact email</p>
                                 <div ng-messages="addArticleForm.email.$dirty && addArticleForm.email.$error">
@@ -84,7 +84,7 @@
                             </div>
                             <div class="col-md-3 col-sm-3 col-xs-6 col-lg-3">
                                 <div class="form-group"  ng-class="{'has-error': addArticleForm.pages.$touched && addArticleForm.pages.$invalid, 'has-success': addArticleForm.pages.$touched && addArticleForm.pages.$valid }">
-                                    <label for="pages" class="control-label">Pages</label>
+                                    <label for="pages" class="control-label">Pages <sup style="color:red">*</sup></label>
                                     <br>
                                     <input type="number" required ng-model='addArticleCtl.articleForm.pages' name="pages" >
 
@@ -102,7 +102,7 @@
                                 <label class="btn btn-default" for="my-file-selector">
                                     <span class="glyphicon glyphicon-cloud-upload"></span>
                                     <input id="my-file-selector" type="file" style="display:none;" accept=".doc, .rtf, .txt" onchange="$('#upload-file-info').html($(this).val());" ng-model="files" ngf-select ngf-keep="true" ngf-keep-distinct="true">
-                                    Upload file
+                                    Upload file  <sup style="color:red">*</sup>
                                 </label>
                                 <span class='label label-info' id="upload-file-info"></span>
                             </div>
