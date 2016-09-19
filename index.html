@@ -17,7 +17,7 @@
 <script src="https://cdn.jsdelivr.net/html5shiv/3.7.2/html5shiv.min.js"></script>
 <script src="https://cdn.jsdelivr.net/respond/1.4.2/respond.min.js"></script>
 <![endif]-->
-        <title>SEP Journal</title>
+        <title translate="GLOBAL.JOURNAL"></title>
     </head>
     <body ng-controller="appCtrl"> <!--  onload="window.location='#endOfComments'" -->
 
@@ -26,12 +26,12 @@
 
                 <div class="navbar-header">
                     <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                        <span class="sr-only">Toggle navigation</span>
+                        <span class="sr-only" translate="GLOBAL.TOGGLE_NAVIGATION"></span>
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <a class="navbar-brand" ng-href="/">SEPOTCD Journal</a>
+                    <a class="navbar-brand" ng-href="/"><span translate="GLOBAL.JOURNAL"></span></a>
                     <a class="navbar-brand" ng-href="/" style="padding: 5px 10px">
                         <img alt="Brand" src="assets/img/logo.png" height="40px">
                     </a>
@@ -39,28 +39,53 @@
 
                 <div class="collapse navbar-collapse">
                     <ul class="nav navbar-nav">
-                        <li><a ng-href="/dashboard"><span class="glyphicon glyphicon-th-large"></span> Dashboard</a></li>
-                        <li><a ng-href="/add-article"><span class="glyphicon glyphicon-plus"></span> Add article</a></li>
-                        <li><a ng-href="/article-list"><span class="glyphicon glyphicon-tasks"></span> New articles</a></li>
-                        <li><a ng-href="/author-stats"><span class="glyphicon glyphicon-stats"></span> Stats</a></li>
+                        <li>
+                            <a ng-href="/dashboard">
+                                <span class="glyphicon glyphicon-th-large"></span> <span translate="GLOBAL.NAV_DASHBOARD"></span></a>
+                        </li>
+                        <li>
+                            <a ng-href="/add-article"><span class="glyphicon glyphicon-plus"></span> <span translate="GLOBAL.NAV_ADDARTICLE"></span>
+                            </a>
+                        </li>
+                        <li>
+                            <a ng-href="/article-list"><span class="glyphicon glyphicon-tasks"></span> <span translate="GLOBAL.NAV_NEWARTICLES"></span>
+                            </a>
+                        </li>
+                        <li>
+                            <a ng-href="/author-stats">
+                                <span class="glyphicon glyphicon-stats"></span> <span translate="GLOBAL.NAV_STATS"></span>
+                            </a>
+                        </li>
                     </ul>
 
                     <ul class="nav navbar-nav navbar-right">
-                        <li><a ng-href="/login"><span class="glyphicon glyphicon-log-in"></span> Log In</a></li>
+                        <li>
+                            <a ng-href="/login">
+                                <span class="glyphicon glyphicon-log-in"></span> <span translate="GLOBAL.NAV_LOGIN"></span>
+                            </a>
+                        </li>
                         <li class="dropdown">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Hello user<span class="caret"></span></a>
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                                <span translate="GLOBAL.NAV_HELLOUSER"></span><span class="caret"></span>
+                            </a>
                             <ul class="dropdown-menu">
-                                <li><a ng-href="/settings"><span class="glyphicon glyphicon-cog"></span> Settings</a></li>
-                                <li><a ng-href="/settings"><span class="glyphicon glyphicon-question-sign"></span> Help</a></li>
+                                <li>
+                                    <a ng-href="/settings"><span class="glyphicon glyphicon-cog"></span> <span translate="GLOBAL.NAV_SETTINGS"></span></a>
+                                </li>
+                                <li>
+                                    <a ng-href="/settings"><span class="glyphicon glyphicon-question-sign"></span> <span translate="GLOBAL.NAV_HELP"></span></a>
+                                </li>
                                 <li role="separator" class="divider"></li>
-                                <li><a ng-href="/logout"><span class="glyphicon glyphicon-log-out"></span> Logout</a></li>
+                                <li>
+                                    <a ng-href="/logout"><span class="glyphicon glyphicon-log-out"></span> <span translate="GLOBAL.NAV_LOGOUT"></span></a>
+                                </li>
                             </ul>
                         </li>
                         <li class="dropdown">
-                           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span class="glyphicon glyphicon-globe"></span><span class="caret"></span></a>
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span class="glyphicon glyphicon-globe"></span><span class="caret"></span></a>
                             <ul class="dropdown-menu">
-                               <li><a href="#" ng-click="changeLanguage('en')"  translate="GLOBAL.CHANGE_TO_ENGLISH"></a></li>
-                               <li><a href="#" ng-click="changeLanguage('ru')" translate="GLOBAL.CHANGE_TO_RUSSIAN"></a></li>
+                                <li><a href="#" ng-click="changeLanguage('en')"  translate="GLOBAL.CHANGE_TO_ENGLISH"></a></li>
+                                <li><a href="#" ng-click="changeLanguage('ru')" translate="GLOBAL.CHANGE_TO_RUSSIAN"></a></li>
                             </ul>
                         </li>
                     </ul>
