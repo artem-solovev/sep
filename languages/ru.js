@@ -2,8 +2,10 @@ var translationsRU = {
     GLOBAL: {
         CHANGE_TO_ENGLISH: "Английский",
         CHANGE_TO_RUSSIAN: "Русский",
+
         JOURNAL: "Журнал НОПГЗ",
         TOGGLE_NAVIGATION: "Переключить навигацию",
+
         NAV_DASHBOARD: "Кабинет",
         NAV_ADDARTICLE: "Отправить статью",
         NAV_NEWARTICLES: "Новые статьи",
@@ -13,5 +15,35 @@ var translationsRU = {
         NAV_SETTINGS: "Настройки",
         NAV_HELP: "Справка",
         NAV_LOGOUT: "Выйти"
+    },
+
+    DASHBOARD: {
+        ARTICLES: "статей",
+        DAYSLEFT: "дней осталось",
+        PAGES: "страниц",
+        EDIT: "Изменить",
+        DELETE: "Удалить",
+        ARTICLE: "Статья",
+        REVIEW: "Рецензия",
+        ADMIN: "Администратор",
+        EDITORIALBOARD: "Редколлегия",
+        LAYOUT: "Верстка",
+        REVIEWERS: "Рецензоры",
+        LAYOUTUSER: "Верстальщик",
+        CREATED: "была написана",
+        UPLOADED: "была загружена",
+        SEQUENCENUMBERINJOURNAL: "Порядковый номер в журнале",
+
+        JOURNALARCHIVE_TITLE: "Архив журнала",
+        JOURNALARCHIVE_PARAGRAPH: "Выберите нужный журнал из списка ниже или создайте новый",
+        JOURNALARCHIVE_DEADLINE: "Дата выпуска",
+        JOURNALARCHIVE_TOTALNUMBER: "Номер журнала (за все время)",
+        JOURNALARCHIVE_YEARNUMBER: "Номер журнала (текущий год)",
+        JOURNALARCHIVE_ADDNEWJOURNAL: "Добавить журнал",
+
+        CHAT_LEAVEACOMMENT: "Добавить комментарий",
+        CHAT_SUBMIT: "Отправить сообщение",
+        CHAT_CANCEL: "Отмена",
+        CHAT_SAVE: "Сохранить",
     }
 };
