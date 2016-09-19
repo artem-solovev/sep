@@ -19,7 +19,7 @@
 <![endif]-->
         <title>SEP Journal</title>
     </head>
-    <body> <!--  onload="window.location='#endOfComments'" -->
+    <body ng-controller="appCtrl"> <!--  onload="window.location='#endOfComments'" -->
 
         <nav class="navbar navbar-inverse navbar-fixed-top">
             <div class="container">
@@ -48,12 +48,19 @@
                     <ul class="nav navbar-nav navbar-right">
                         <li><a ng-href="/login"><span class="glyphicon glyphicon-log-in"></span> Log In</a></li>
                         <li class="dropdown">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Artem Solovev<span class="caret"></span></a>
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Hello user<span class="caret"></span></a>
                             <ul class="dropdown-menu">
                                 <li><a ng-href="/settings"><span class="glyphicon glyphicon-cog"></span> Settings</a></li>
                                 <li><a ng-href="/settings"><span class="glyphicon glyphicon-question-sign"></span> Help</a></li>
                                 <li role="separator" class="divider"></li>
                                 <li><a ng-href="/logout"><span class="glyphicon glyphicon-log-out"></span> Logout</a></li>
+                            </ul>
+                        </li>
+                        <li class="dropdown">
+                           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span class="glyphicon glyphicon-globe"></span><span class="caret"></span></a>
+                            <ul class="dropdown-menu">
+                               <li><a href="#" ng-click="changeLanguage('en')"  translate="GLOBAL.CHANGE_TO_ENGLISH"></a></li>
+                               <li><a href="#" ng-click="changeLanguage('ru')" translate="GLOBAL.CHANGE_TO_RUSSIAN"></a></li>
                             </ul>
                         </li>
                     </ul>
@@ -95,10 +102,21 @@
         <!-- AngularFire -->
         <script src="https://cdn.firebase.com/libs/angularfire/2.0.2/angularfire.min.js"></script>
 
+        <!-- Angular translate -->
+        <script src="https://cdn.rawgit.com/SlexAxton/messageformat.js/v0.3.0/messageformat.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-translate/2.10.0/angular-translate.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-translate-interpolation-messageformat/2.10.0/angular-translate-interpolation-messageformat.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-translate-storage-cookie/2.10.0/angular-translate-storage-cookie.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-translate-storage-local/2.10.0/angular-translate-storage-local.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-translate-loader-url/2.10.0/angular-translate-loader-url.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-translate-loader-static-files/2.10.0/angular-translate-loader-static-files.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-translate-handler-log/2.10.0/angular-translate-handler-log.js"></script>
+
         <!-- App files -->
         <script src="app.js"></script>
 
         <!-- Controllers -->
+        <script src="controllers/appCtrl.js"></script>
         <script src="controllers/loginCtrl.js"></script>
         <script src="controllers/addArticleCtrl.js"></script>
         <script src="controllers/articlesManagerCtrl.js"></script>
@@ -112,6 +130,10 @@
 
         <!-- Directives -->
         <script src="directives/highlightDirective.js"></script>
+
+        <!-- Languages -->
+        <script src="languages/en.js"></script>
+        <script src="languages/ru.js"></script>
 
     </body>
 </html>

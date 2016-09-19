@@ -1,4 +1,4 @@
-var app = angular.module( 'journalApp', [ 'firebase', 'ngRoute', 'ngMessages', 'highlightDirective' ] );
+var app = angular.module( 'journalApp', [ 'firebase', 'ngRoute', 'ngMessages', 'highlightDirective', 'pascalprecht.translate' ] );
 
 app.constant( 'FIREBASE', 'https://sepjournal-991b7.firebaseio.com/' );
 
@@ -85,6 +85,14 @@ app.config( [ '$routeProvider', '$locationProvider', function( $routeProvider, $
     $locationProvider.html5Mode( true );
 
 } ] );
+
+app.config( ['$translateProvider', function ( $translateProvider ) {
+    // add translation tables
+    $translateProvider.translations( 'en', translationsEN );
+    $translateProvider.translations( 'ru', translationsRU );
+    $translateProvider.preferredLanguage( 'ru' );
+    $translateProvider.fallbackLanguage( 'ru' );
+}]);
 
 app.run( [ "$rootScope", "$location", function( $rootScope, $location ) {
     $rootScope.$on("$routeChangeError", function(event, next, previous, error) {
