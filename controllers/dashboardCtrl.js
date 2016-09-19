@@ -45,5 +45,9 @@ app.controller( 'dashboardCtrl', [ 'dashboardService', 'initialData', '$scope', 
     self.getCurrentJournalInfo = function( $index ) {
         return self.journalList[$index];
     };
+    
+    self.getTestFrame = function() {
+        alert( "Функция тестируется! Отмечается не стабильное поведение." );
+    };
 
 } ]);

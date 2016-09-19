@@ -62,10 +62,10 @@
 
                 <h2><span class="glyphicon glyphicon-book"></span> 2016 #{{dashCtl.currentJournalInfo.yearNumber}} {{dashCtl.currentJournalInfo.totalNumber}}</h2>
                 <div class="btn-group" role="group" aria-label="...">
-                    <button type="button" class="btn btn-default">
+                    <button type="button" class="btn btn-default" ng-click="dashCtl.getTestFrame()">
                         <span class="glyphicon glyphicon-pencil"></span> <span translate="DASHBOARD.EDIT"></span>
                     </button>
-                    <button type="button" class="btn btn-default">
+                    <button type="button" class="btn btn-default" ng-click="dashCtl.getTestFrame()">
                         <span class="glyphicon glyphicon-trash"></span> <span translate="DASHBOARD.DELETE"></span>
                     </button>
                 </div>
