@@ -45,5 +45,23 @@ var translationsEN = {
         CHAT_SUBMIT: "Submit",
         CHAT_CANCEL: "Cancel",
         CHAT_SAVE: "Save",
+    },
+
+    ADDARTICLEFORM: {
+        TITLE: "Send article to journal",
+        ARTICLE_AUTHORS: "Authors",
+        ARTICLE_TITLE: "Title",
+        ARTICLE_DATEOFWRITING: "Date of writing",
+        ARTICLE_CATEGORY: "Category",
+        ARTICLE_EMAIL: "Email",
+        ARTICLE_EMAIL_INFOMESSAGE: "The contact email",
+        ARTICLE_PRIORITY: "Priority",
+        ARTICLE_PAGES: "Pages",
+        ARTICLE_SUBMIT: "Submit",
+        ARTICLE_RESET: "Reset",
+
+        MESSAGE_REQUIREDFIELD: "This Field is required",
+        MESSAGE_SHORT: "Too short",
+        MESSAGE_LONG: "Too long"
     }
 };

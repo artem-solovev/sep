@@ -45,5 +45,23 @@ var translationsRU = {
         CHAT_SUBMIT: "Отправить сообщение",
         CHAT_CANCEL: "Отмена",
         CHAT_SAVE: "Сохранить",
+    },
+
+    ADDARTICLEFORM: {
+        TITLE: "Отправить статью в журнал",
+        ARTICLE_AUTHORS: "Авторы",
+        ARTICLE_TITLE: "Заголовок статьи",
+        ARTICLE_DATEOFWRITING: "Дата написания",
+        ARTICLE_CATEGORY: "Основная тематика",
+        ARTICLE_EMAIL: "Электронная почта",
+        ARTICLE_EMAIL_INFOMESSAGE: "Актуальный почтовый ящик",
+        ARTICLE_PRIORITY: "Приоритет",
+        ARTICLE_PAGES: "Страниц",
+        ARTICLE_SUBMIT: "Отправить статью",
+        ARTICLE_RESET: "Очистить форму",
+
+        MESSAGE_REQUIREDFIELD: "Это поле является обязательным",
+        MESSAGE_SHORT: "Слишком короткое значение",
+        MESSAGE_LONG: "Слишком длинное значение"
     }
 };

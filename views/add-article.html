@@ -1,13 +1,13 @@
 <div class="row">
     <div class="col-md-6 col-sm-8 col-lg-6">
         <script type="text/ng-template" id="error-messages">
-<div ng-message='required'> This Field is required </div>
-<div ng-message='minlength'> Too short </div>
-<div ng-message='maxlength'> Too long </div>
+<div ng-message='required'>This Field is required</div>
+<div ng-message='minlength'>Too short</div>
+<div ng-message='maxlength'>Too long</div>
         </script>
 
         <div class="panel panel-default">
-            <div class="panel-heading"><h3>Add article</h3></div>
+            <div class="panel-heading"><h3 translate="ADDARTICLEFORM.TITLE"></h3></div>
             <div class="panel-body">
 
                 <form class="form" role="form" id="addArticleForm" ng-submit='addArticleForm.$valid && addArticleCtl.submitForm(addArticleCtl.articleForm)' novalidate name="addArticleForm">
@@ -15,10 +15,10 @@
                     <div class="row">
                         <div class="col-md-6 col-sm-6 col-xs-12 col-lg-6">
                             <div class="form-group" ng-class="{'has-error': addArticleForm.authors.$touched && addArticleForm.authors.$invalid, 'has-success': addArticleForm.authors.$touched && addArticleForm.authors.$valid }">
-                                <label for="authors" class="control-label">Authors <sup style="color:red">*</sup></label>
+                                <label for="authors" class="control-label" translate="ADDARTICLEFORM.ARTICLE_AUTHORS"></label><sup style="color:red"> *</sup>
                                 <input type="text" ng-model='addArticleCtl.articleForm.authors' required class="form-control"  name="authors" placeholder="Author (s)" ng-minlength='3' ng-maxlength='127'>
                                 <div ng-messages="addArticleForm.authors.$dirty && addArticleForm.authors.$error">
-                                    <div ng-message='required'> Required </div>
+                                    <div ng-message='required'>Required</div>
                                     <div ng-message='minlength'>At least 3 chars long</div>
                                     <div ng-message='maxlength'>Cannot be longer than 127 chars</div>
                                 </div>
@@ -26,10 +26,10 @@
                         </div>
                         <div class="col-md-6 col-sm-6 col-xs-12 col-lg-6">
                             <div class="form-group" ng-class="{'has-error': addArticleForm.title.$touched && addArticleForm.title.$invalid, 'has-success': addArticleForm.title.$touched && addArticleForm.title.$valid }">
-                                <label for="title" class="control-label">Title <sup style="color:red">*</sup></label>
+                                <label for="title" class="control-label" translate="ADDARTICLEFORM.ARTICLE_TITLE"></label><sup style="color:red"> *</sup>
                                 <input type="textarea"  required ng-model='addArticleCtl.articleForm.title' class="form-control" name="title" placeholder="Title for article"  ng-minlength='3' ng-maxlength='255'>
                                 <div ng-messages="addArticleForm.title.$dirty && addArticleForm.title.$error">
-                                    <div ng-message='required'> Required </div>
+                                    <div ng-message='required'>Required</div>
                                     <div ng-message='minlength'>At least 3 chars long</div>
                                     <div ng-message='maxlength'>Cannot be longer than 255 chars</div>
                                 </div>
@@ -40,7 +40,7 @@
                     <div class="row">
                         <div class="col-md-6 col-sm-6 col-xs-12 col-lg-6">
                             <div class="form-group" ng-class="{'has-error': addArticleForm.written.$touched && addArticleForm.written.$invalid, 'has-success': addArticleForm.written.$touched && addArticleForm.written.$valid }">
-                                <label for="written" required class=" control-label">Date of writing <sup style="color:red">*</sup></label>
+                                <label for="written" required class=" control-label" translate="ADDARTICLEFORM.ARTICLE_DATEOFWRITING"></label><sup style="color:red"> *</sup>
                                 <input type="text" required ng-pattern='/^[0-9]{4}-(0[1-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1])$/' ng-model='addArticleCtl.articleForm.date' class="form-control" name="written" placeholder="yyyy-MM-dd">
                                 <div ng-messages="addArticleForm.written.$dirty && addArticleForm.written.$error">
                                     <div ng-message="pattern">Please enter the date in the yyyy-mm-dd format</div>
@@ -50,7 +50,7 @@
                         </div>
                         <div class="col-md-6 col-sm-6 col-xs-12 col-lg-6">
                             <div class="form-group" ng-class="{'has-error': addArticleForm.category.$touched && addArticleForm.category.$invalid, 'has-success': addArticleForm.category.$touched && addArticleForm.category.$valid }">
-                                <label for="category"  class="control-label">Category <sup style="color:red">*</sup></label>
+                                <label for="category"  class="control-label" translate="ADDARTICLEFORM.ARTICLE_CATEGORY"></label><sup style="color:red"> *</sup>
                                 <select class="form-control" required ng-model='addArticleCtl.selectedOption' ng-options="category.name for category in addArticleCtl.categories track by category.id" data-width="100%" name="category">
                                 </select>
                                 <div ng-messages="addArticleForm.category.$dirty && addArticleForm.category.$error">
@@ -63,9 +63,9 @@
                     <div class="row">
                         <div class="col-md-6 col-sm-6 col-xs-12 col-lg-6">
                             <div class="form-group" ng-class="{'has-error': addArticleForm.email.$touched && addArticleForm.email.$invalid, 'has-success': addArticleForm.email.$touched && addArticleForm.email.$valid }">
-                                <label for="articleEmail" class=" control-label">Email <sup style="color:red">*</sup></label>
+                                <label for="articleEmail" class=" control-label" translate="ADDARTICLEFORM.ARTICLE_EMAIL"> </label><sup style="color:red"> *</sup>
                                 <input type="email" ng-model='addArticleCtl.articleForm.email' required class="form-control" name="articleEmail" placeholder="Email Info">
-                                <p class="help-block">The contact email</p>
+                                <p class="help-block" translate="ADDARTICLEFORM.ARTICLE_EMAIL_INFOMESSAGE"></p>
                                 <div ng-messages="addArticleForm.email.$dirty && addArticleForm.email.$error">
                                     <div ng-messages-include="error-messages"></div>
                                 </div>
@@ -74,7 +74,7 @@
                         <div class="col-md-6 col-sm-6 col-xs-12 col-lg-6">
                             <div class="col-md-3 col-sm-3 col-xs-6 col-lg-3">
                                 <div class="form-group" ng-class="{'has-error': addArticleForm.priority.$touched && addArticleForm.priority.$invalid, 'has-success': addArticleForm.priority.$touched && addArticleForm.priority.$valid }">
-                                    <label for="priority" class="control-label">Priority</label>
+                                    <label for="priority" class="control-label" translate="ADDARTICLEFORM.ARTICLE_PRIORITY"></label>
                                     <br>
                                     <input type="checkbox" ng-model='addArticleCtl.articleForm.priority' name="priority" >
                                     <div ng-messages="addArticleForm.priority.$dirty && addArticleForm.priority.$error">
@@ -84,7 +84,7 @@
                             </div>
                             <div class="col-md-3 col-sm-3 col-xs-6 col-lg-3">
                                 <div class="form-group"  ng-class="{'has-error': addArticleForm.pages.$touched && addArticleForm.pages.$invalid, 'has-success': addArticleForm.pages.$touched && addArticleForm.pages.$valid }">
-                                    <label for="pages" class="control-label">Pages <sup style="color:red">*</sup></label>
+                                    <label for="pages" class="control-label" translate="ADDARTICLEFORM.ARTICLE_PAGES"></label><sup style="color:red"> *</sup>
                                     <br>
                                     <input type="number" required ng-model='addArticleCtl.articleForm.pages' name="pages" >
 
@@ -114,8 +114,8 @@
                     <div class="row">
                         <div class="col-md-6 col-sm-6 col-xs-12 col-lg-6">
                             <div class="form-group">
-                                <button  type="submit" ng-disabled="addArticleForm.$invalid" class="btn btn-primary">Submit</button>
-                                <button type="reset" class="btn btn-primary">Reset</button>
+                                <button  type="submit" ng-disabled="addArticleForm.$invalid" class="btn btn-primary" translate="ADDARTICLEFORM.ARTICLE_SUBMIT"></button>
+                                <button type="reset" class="btn btn-primary" translate="ADDARTICLEFORM.ARTICLE_RESET"></button>
                             </div>
                         </div>
                     </div>
