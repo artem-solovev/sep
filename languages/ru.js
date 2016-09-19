@@ -72,7 +72,20 @@ var translationsRU = {
         SEARCH_BYCAT: "Искать по категории:",
         SEARCH_EXACTMATCH: "Точное совпадение?",
         SEARCH_CLEARFILTER: "Сбросить фильтр",
-        
-         TABLE_TITLE: "Название статьи"
+
+        TABLE_TITLE: "Название статьи"
+    },
+
+    LOGIN: {
+        SIGNIN_TITLE: "Вход в систему",
+        SIGNIN_FORGOTPASS: "Забыли пароль?",
+        SIGNIN_LOGIN: "Войти",
+        SIGNIN_HAVENTACCOUNT: "Нет аккаунта?",
+        SIGNIN_REGHERE: "Зарегистрируйтесь здесь",
+        SIGNUP_TITLE: "Зарегистрироваться",
+        SIGNUP_USERNAME: "Имя",
+        SIGNUP_EMAIL: "Эл.ящик",
+        SIGNUP_PASSWORD: "Пароль",
+        SIGNUP_SUBMITFORM: "Отправить данные"
     }
 };

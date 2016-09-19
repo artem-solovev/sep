@@ -74,5 +74,18 @@ var translationsEN = {
         SEARCH_CLEARFILTER: "Clear Filter",
 
         TABLE_TITLE: "Title"
+    },
+
+    LOGIN: {
+        SIGNIN_TITLE: "Sign In",
+        SIGNIN_FORGOTPASS: "Forgot password?",
+        SIGNIN_LOGIN: "Login",
+        SIGNIN_HAVENTACCOUNT: "Don't have an account?",
+        SIGNIN_REGHERE: "Sign Up Here",
+        SIGNUP_TITLE: "Sign Up",
+        SIGNUP_USERNAME: "Username",
+        SIGNUP_EMAIL: "Email",
+        SIGNUP_PASSWORD: "Password",
+        SIGNUP_SUBMITFORM: "Sign Up"
     }
 };
