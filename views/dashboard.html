@@ -30,7 +30,7 @@
 
         <!-- List group -->
         <div class="list-group">
-            <a href="#" class="list-group-item" ng-repeat="journal in dashCtl.journalList" ng-click="dashCtl.getArticlesFromJournal( $index )">
+            <a href="#" class="list-group-item" ng-repeat="journal in dashCtl.journalList" ng-click="dashCtl.getArticlesFromJournal( $index )" title="Show all articles in this journal">
                 <h4 class="list-group-item-heading">{{journal.date}} #{{journal.yearNumber}} ({{journal.totalNumber}})</h4>
                 <p class="list-group-item-text"><span class="label label-success">15 articles</span></p>
             </a>
@@ -41,7 +41,7 @@
 <div id="main">
     <div class="col-xs-12">
         <div class="row">
-            <span style="font-size:30px;cursor:pointer" class="glyphicon glyphicon-menu-hamburger" onclick="showHideNav()"></span>
+            <span style="font-size:30px;cursor:pointer" class="glyphicon glyphicon-menu-hamburger" onclick="showHideNav()" title="Show/hide journal archive"></span>
         </div>
     </div>
 
@@ -91,11 +91,11 @@
                             <td>
 
                                 <div class="btn-group-vertical btn-group-sm tex-center" role="group" aria-label="...">
-                                    <button class="btn btn-default" ng-click="dashCtl.showArticleRoom( $index )">
+                                    <button class="btn btn-default" ng-click="dashCtl.showArticleRoom( $index )" title="Show article room">
                                     <span class="glyphicon glyphicon-eye-open"></span>
                                     </button>
                                     <button class="btn btn-primary"><span class="glyphicon glyphicon-pencil"></span></button>
-                                    <button class="btn btn-danger" ng-click="dashCtl.unassignArticle( $index )"><span class="glyphicon glyphicon-trash"></span></button>
+                                    <button class="btn btn-danger" ng-click="dashCtl.unassignArticle( $index )"  title="Unassign article from this journal"><span class="glyphicon glyphicon-trash"></span></button>
                                 </div>
 
                             </td>
