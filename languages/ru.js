@@ -14,7 +14,8 @@ var translationsRU = {
         NAV_HELLOUSER: "Привет пользователь",
         NAV_SETTINGS: "Настройки",
         NAV_HELP: "Справка",
-        NAV_LOGOUT: "Выйти"
+        NAV_LOGOUT: "Выйти",
+        NAV_SOON: "Скоро!"
     },
 
     DASHBOARD: {

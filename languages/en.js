@@ -14,7 +14,8 @@ var translationsEN = {
         NAV_HELLOUSER: "Hello user",
         NAV_SETTINGS: "Settings",
         NAV_HELP: "Help",
-        NAV_LOGOUT: "Log out"
+        NAV_LOGOUT: "Log out",
+        NAV_SOON: "Soon!"
     },
 
     DASHBOARD: {
