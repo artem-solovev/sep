@@ -6,6 +6,24 @@ app.factory( 'dashboardService', [ '$firebaseArray', '$http', '$q', function( $f
 
 
     dashboardService.getAllJournals = function() {
+
+        // Get the value of articles in each article and adding it like value to object
+        journals.$loaded().then( function() {
+            angular.forEach( journals, function( journal ) {
+                var currentJournal = dashboardService.getCurrentJournal( journal.$id );
+                var currentJournalLength = 0;
+
+                currentJournal.$loaded().then( function() { 
+                    currentJournalLength = currentJournal.length;
+
+                    journalsRef.child( journal.$id ).update( { articles: currentJournalLength } );
+                } );
+
+
+            } );
+
+        } );
+
         console.info( journals );
 
         return journals;

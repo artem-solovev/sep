@@ -34,7 +34,11 @@
         <div class="list-group">
             <a href="#" class="list-group-item" ng-repeat="journal in dashCtl.journalList" ng-click="dashCtl.getArticlesFromJournal( $index )" title="Show all articles in this journal">
                 <h4 class="list-group-item-heading">{{journal.date}} #{{journal.yearNumber}} ({{journal.totalNumber}})</h4>
-                <p class="list-group-item-text"><span class="label label-success">15 <span translate="DASHBOARD.ARTICLES"></span></span></p>
+                <p class="list-group-item-text">
+                    <span class="label label-success" ng-show="journal.articles !=0">{{journal.articles}} <span translate="DASHBOARD.ARTICLES"></span></span>
+                    <span class="label label-danger" ng-show="journal.articles == 0" translate="DASHBOARD.JOURNALARCHIVE_EMPTY"></span>
+                    
+                </p>
             </a>
         </div>
 
@@ -59,10 +63,10 @@
                 <h2><span class="glyphicon glyphicon-book"></span> 2016 #2 29</h2>
                 <div class="btn-group" role="group" aria-label="...">
                     <button type="button" class="btn btn-default">
-                    <span class="glyphicon glyphicon-pencil"></span> <span translate="DASHBOARD.EDIT"></span>
+                        <span class="glyphicon glyphicon-pencil"></span> <span translate="DASHBOARD.EDIT"></span>
                     </button>
                     <button type="button" class="btn btn-default">
-                    <span class="glyphicon glyphicon-trash"></span> <span translate="DASHBOARD.DELETE"></span>
+                        <span class="glyphicon glyphicon-trash"></span> <span translate="DASHBOARD.DELETE"></span>
                     </button>
                 </div>
                 <h5><span class="glyphicon glyphicon-calendar"></span> 5 <span translate="DASHBOARD.DAYSLEFT"></span> ( 12 sep 2016 )</h5>

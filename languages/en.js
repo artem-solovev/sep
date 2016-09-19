@@ -40,6 +40,7 @@ var translationsEN = {
         JOURNALARCHIVE_TOTALNUMBER: "Total number",
         JOURNALARCHIVE_YEARNUMBER: "Year number",
         JOURNALARCHIVE_ADDNEWJOURNAL: "Add new journal",
+        JOURNALARCHIVE_EMPTY: "Empty!",
 
         CHAT_LEAVEACOMMENT: "Leave a comment",
         CHAT_SUBMIT: "Submit",

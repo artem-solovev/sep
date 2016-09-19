@@ -40,6 +40,7 @@ var translationsRU = {
         JOURNALARCHIVE_TOTALNUMBER: "Номер журнала (за все время)",
         JOURNALARCHIVE_YEARNUMBER: "Номер журнала (текущий год)",
         JOURNALARCHIVE_ADDNEWJOURNAL: "Добавить журнал",
+        JOURNALARCHIVE_EMPTY: "Нет статей!",
 
         CHAT_LEAVEACOMMENT: "Добавить комментарий",
         CHAT_SUBMIT: "Отправить сообщение",
