@@ -13,10 +13,20 @@ app.factory( 'dashboardService', [ '$firebaseArray', '$http', '$q', function( $f
                 var currentJournal = dashboardService.getCurrentJournal( journal.$id );
                 var currentJournalLength = 0;
 
-                currentJournal.$loaded().then( function() { 
+                // To add an element ARTICLES to each Journal
+                currentJournal.$loaded().then( function() {
+
+                    var pages = 0;
+
+                    // Counting pages in each article
+                    angular.forEach( currentJournal, function( article ) {
+                        pages = pages + parseInt( article.pages );
+                    } );
+
                     currentJournalLength = currentJournal.length;
 
                     journalsRef.child( journal.$id ).update( { articles: currentJournalLength } );
+                    journalsRef.child( journal.$id ).update( { pages: pages } );
                 } );
 
 

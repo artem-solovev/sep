@@ -11,11 +11,15 @@ app.controller( 'dashboardCtrl', [ 'dashboardService', 'initialData', '$scope', 
 
     self.currentArticle = null;
 
+    self.currentJournalInfo = null;
+
     self.getArticlesFromJournal = function( $index ) {
         self.currentJournalId = self.journalList[$index].$id;
         self.currentJournal = dashboardService.getCurrentJournal( self.currentJournalId );
         console.warn( "self.currentJournal ");
         console.warn( self.currentJournal );
+
+        self.currentJournalInfo = self.getCurrentJournalInfo( $index );
     };
 
     self.createJournal = function( journal ) {
@@ -36,6 +40,10 @@ app.controller( 'dashboardCtrl', [ 'dashboardService', 'initialData', '$scope', 
         if ( confirm("Do you wanna move it to unsorted articles?") == true ) {
             dashboardService.unassignArticle( self.currentJournal[$index], self.currentJournalId );
         }
+    };
+
+    self.getCurrentJournalInfo = function( $index ) {
+        return self.journalList[$index];
     };
 
 } ]);
