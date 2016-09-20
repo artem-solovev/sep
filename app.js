@@ -22,7 +22,13 @@ app.config( [ '$routeProvider', '$locationProvider', function( $routeProvider, $
     } );
 
     $routeProvider.when( '/', {
-        templateUrl: 'views/home.html'
+        templateUrl: 'views/home.html',
+        resolve: {
+            "currentAuth": [ "authService", function( authService ) {
+                var auth = authService.auth();
+                return auth.$requireSignIn();
+            }]
+        }
     });
 
     $routeProvider.when( '/dashboard', {
