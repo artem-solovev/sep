@@ -12,10 +12,12 @@ var translationsEN = {
         NAV_STATS: "Stats",
         NAV_LOGIN: "Log in",
         NAV_HELLOUSER: "Hello user",
+        NAV_USERSPROFILE: "Мy profile",
         NAV_SETTINGS: "Settings",
         NAV_HELP: "Help",
         NAV_LOGOUT: "Log out",
-        NAV_SOON: "Soon!"
+        NAV_SOON: "Soon!",
+        NAV_NEW: "New!"
     },
 
     DASHBOARD: {

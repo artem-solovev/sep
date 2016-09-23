@@ -26,5 +26,9 @@ app.factory( 'authService',  [ '$firebaseAuth', '$window', function( $firebaseAu
         return auth;
     };
 
+    authService.getUserInfo = function() {
+        return firebase.auth().currentUser;
+    };
+
     return authService;
 }]);

@@ -90,6 +90,14 @@
                             </a>
                             <ul class="dropdown-menu">
                                 <li>
+                                    <a ng-href="/profile">
+                                        <span class="label label-success" translate="GLOBAL.NAV_NEW"></span>
+                                        <span class="glyphicon glyphicon-user"></span>
+                                        <span translate="GLOBAL.NAV_USERSPROFILE"> </span>
+                                    </a>
+                                </li>
+                                <li role="separator" class="divider"></li>
+                                <li>
                                     <a ng-href="/settings"><span class="label label-warning" translate="GLOBAL.NAV_SOON"> <span class="glyphicon glyphicon-wrench"></span></span> <span class="glyphicon glyphicon-cog"></span> <span translate="GLOBAL.NAV_SETTINGS"></span></a>
                                 </li>
                                 <li>
@@ -167,6 +175,7 @@
         <script src="controllers/articlesManagerCtrl.js"></script>
         <script src="controllers/dashboardCtrl.js"></script>
         <script src="controllers/chatController.js"></script>
+        <script src="controllers/profileCtrl.js"></script>
 
         <!-- Services -->
         <script src="services/authService.js"></script>

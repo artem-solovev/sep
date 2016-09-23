@@ -46,6 +46,18 @@ app.config( [ '$routeProvider', '$locationProvider', function( $routeProvider, $
         }
     });
 
+    $routeProvider.when( '/profile', {
+        templateUrl: 'views/profile.html',
+        controller: 'profileCtrl',
+        controllerAs: 'profileCtl',
+        resolve: {
+            "currentAuth": [ "authService", function( authService ) {
+                var auth = authService.auth();
+                return auth.$requireSignIn();
+            }]
+        }
+    });
+
     $routeProvider.when( '/settings', {
         templateUrl: 'views/settings.html',
         resolve: {

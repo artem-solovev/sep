@@ -12,10 +12,12 @@ var translationsRU = {
         NAV_STATS: "Статистика",
         NAV_LOGIN: "Войти",
         NAV_HELLOUSER: "Привет пользователь",
+        NAV_USERSPROFILE: "Мой профиль",
         NAV_SETTINGS: "Настройки",
         NAV_HELP: "Справка",
         NAV_LOGOUT: "Выйти",
-        NAV_SOON: "Скоро!"
+        NAV_SOON: "Скоро!",
+        NAV_NEW: "Новинка!"
     },
 
     DASHBOARD: {
