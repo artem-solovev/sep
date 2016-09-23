@@ -13,6 +13,7 @@ app.factory( 'authService',  [ '$firebaseObject', '$firebaseAuth', '$window', fu
             authService.userExists( firebase.auth().currentUser.uid,
                                    firebase.auth().currentUser.email,
                                    firebase.auth().currentUser.emailVerified);
+
             console.log( firebase.auth().currentUser );
             //$window.location.href = "/";
         }, function( error ) {
@@ -42,24 +43,33 @@ app.factory( 'authService',  [ '$firebaseObject', '$firebaseAuth', '$window', fu
         return user;
     };
 
+    authService.checkVerification = function( uid, emailVerified ) {
+        var usersRef = firebase.database().ref( 'users/' );
+
+        usersRef.child( uid ).update( {
+            emailVerified: emailVerified
+        } );
+    };
+
     authService.userExists = function( uid, email, emailVerified ) {
         var usersRef = firebase.database().ref( 'users' );
 
         usersRef.once( "value", function( snap ) {
             if( snap.exists() ) {
-                // User exists
+                console.log( "user exists" );
             } else {
                 authService.createUserNode( uid, email, emailVerified );
             }
+
+            authService.checkVerification( firebase.auth().currentUser.uid, firebase.auth().currentUser.emailVerified );
         } );
     };
 
     authService.createUserNode = function( uid, email, emailVerified ) {
         var usersRef = firebase.database().ref( 'users/' );
 
-        usersRef.child( uid ).set( {
+        usersRef.child( uid ).update( {
             email: email,
-            emailVerified: emailVerified
         } );
     };
 
@@ -68,6 +78,16 @@ app.factory( 'authService',  [ '$firebaseObject', '$firebaseAuth', '$window', fu
 
         usersRef.child( uid ).update( data );
 
+    };
+
+    authService.sendActivationEmail = function() {
+        var user = firebase.auth().currentUser;
+
+        user.sendEmailVerification().then(function() {
+            // Email sent.
+        }, function(error) {
+            // An error happened.
+        });
     };
 
     return authService;

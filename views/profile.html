@@ -28,6 +28,17 @@
                                         <td ng-show="profileCtl.edit">{{profileCtl.info.email}}</td>
                                         <td ng-show="!profileCtl.edit"><input name="email" type="text" class="form-control" ng-model="profileCtl.info.email"/></td>
                                     </tr>
+                                    <tr ng-cloak>
+                                        <td>
+                                            <label for="emailVerified">Verified?</label>
+                                        </td>
+                                        <td ng-show="profileCtl.info.emailVerified">
+                                            <div class="alert alert-success" role="alert">You are successfully verified!</div>
+                                        </td>
+                                        <td ng-show="!profileCtl.info.emailVerified">
+                                            <div class="alert alert-danger" role="alert">You are not verified. <a href="#" ng-click="profileCtl.activateAccount()">Click</a> and we send you email</div>
+                                        </td>
+                                    </tr>
                                 </tbody>
                             </table>
                             <div class="pull-right">

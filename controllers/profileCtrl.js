@@ -17,5 +17,9 @@ app.controller( 'profileCtrl', [ 'authService', function( authService ) {
         authService.updateUserProfile( self.info.$id, data );
         //self.info = authService.getUserInfo();
     };
+    
+    self.activateAccount = function() {
+        authService.sendActivationEmail();
+    };
 
 } ] );
