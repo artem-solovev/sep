@@ -1,6 +1,6 @@
 <div class="container">
     <div class="row">
-        <div class="col-xs-6 col-xs-offset-3 toppad" >
+        <div class="col-xs-8 col-xs-offset-2 toppad" >
             <div class="panel panel-default">
                 <div class="panel-heading">Users profile</div>
 
@@ -8,31 +8,48 @@
                     <div class="col-md-3 col-lg-3 " align="center"> <img alt="User Pic" ng-src="http://static1.bornrichimages.com/cdn2/500/500/91/c/wp-content/uploads/s3/1/2011/12/30/1325225165116_300x300.jpg" style="border-radius:100%; width:120px; height:120px" /></div>
 
                     <div class=" col-md-9 col-lg-9 ">
-                        <table class="table">
-                            <tbody>
-                                <tr>
-                                    <td><span class="glyphicon glyphicon-user"></span> Name</td>
-                                    <td>{{profileCtl.info.displayName}}</td>
-                                </tr>
-                                <tr>
-                                    <td><span class="glyphicon glyphicon-envelope"></span> Email</td>
-                                    <td>{{profileCtl.info.email}}</td>
-                                </tr>
-                                <tr class="danger">
-                                    <td><span class="glyphicon glyphicon-remove"></span> Not activated</td>
-                                    <td>Click <a href="#">here</a> to activate</td>
-                                </tr>
-                            </tbody>
-                        </table>
+                        <form class="form" role="form" id="userProfileForm" ng-submit='profileCtl.submitForm(profileCtl.userProfile);profileCtl.edit = !profileCtl.edit' novalidate name="addArticleForm">
+                            <table class="table">
+                                <tbody>
+                                    <tr>
+                                        <td><label for="name">Name</label></td>
+                                        <td ng-show="profileCtl.edit">{{profileCtl.info.name}}</td>
+                                        <td ng-show="!profileCtl.edit"><input name="name" type="text" class="form-control"  ng-model="profileCtl.userProfile.name"/></td>
+                                    </tr>
+
+                                    <tr>
+                                        <td><label for="name">Scientific degree</label></td>
+                                        <td ng-show="profileCtl.edit">{{profileCtl.info.degree}}</td>
+                                        <td ng-show="!profileCtl.edit"><input name="degree" type="text" class="form-control" ng-model="profileCtl.userProfile.degree"/></td>
+                                    </tr>
+                                    <tr>
+                                        <!-- In the end -->
+                                        <td><label for="name">Email</label></td>
+                                        <td ng-show="profileCtl.edit">{{profileCtl.info.email}}</td>
+                                        <td ng-show="!profileCtl.edit"><input name="email" type="text" class="form-control" ng-model="profileCtl.info.email"/></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                            <div class="pull-right">
+                                <div class="btn-group btn-group-sm tex-center" role="group" aria-label="...">
+
+                                    <button ng-disabled="!profileCtl.edit" class="btn btn-primary" ng-click="profileCtl.edit = !profileCtl.edit"><span class="glyphicon glyphicon-pencil"></span></button>
+
+                                    <button 
+                                            ng-disabled="profileCtl.edit" 
+                                            type="submit" 
+                                            class="btn btn-success"
+                                            ><span class="glyphicon glyphicon-floppy-disk"></span></button>
+
+                                    <button ng-disabled="profileCtl.edit" class="btn btn-warning"><span class="glyphicon glyphicon-floppy-remove"></span></button>
+                                </div>
+                            </div>
+                        </form>
                     </div>
                 </div><!-- .panel-body -->
 
                 <div class="panel-footer">
-                    <a data-original-title="Broadcast Message" data-toggle="tooltip" type="button" class="btn btn-sm btn-primary"><i class="glyphicon glyphicon-envelope"></i></a>
-                    <span class="pull-right">
-                        <a href="edit.html" data-original-title="Edit this user" data-toggle="tooltip" type="button" class="btn btn-sm btn-warning"><i class="glyphicon glyphicon-edit"></i></a>
-                        <a data-original-title="Remove this user" data-toggle="tooltip" type="button" class="btn btn-sm btn-danger"><i class="glyphicon glyphicon-remove"></i></a>
-                    </span>
+
                 </div>
             </div>
         </div>
