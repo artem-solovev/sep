@@ -8,6 +8,7 @@
                     <div class="col-md-3 col-lg-3 " align="center"> <img alt="User Pic" ng-src="http://static1.bornrichimages.com/cdn2/500/500/91/c/wp-content/uploads/s3/1/2011/12/30/1325225165116_300x300.jpg" style="border-radius:100%; width:120px; height:120px" /></div>
 
                     <div class=" col-md-9 col-lg-9 ">
+                        <div class="alert alert-info" role="alert" ng-show="!profileCtl.edit">Внимание. Сохранятся только измененные поля</div>
                         <form class="form" role="form" id="userProfileForm" ng-submit='profileCtl.submitForm(profileCtl.userProfile);profileCtl.edit = !profileCtl.edit' novalidate name="addArticleForm">
                             <table class="table">
                                 <tbody>
@@ -38,21 +39,22 @@
                                         <td ng-show="!profileCtl.info.emailVerified">
                                             <div class="alert alert-danger" role="alert">You are not verified. <a href="#" ng-click="profileCtl.activateAccount()">Click</a> and we send you email</div>
                                         </td>
+
                                     </tr>
                                 </tbody>
                             </table>
                             <div class="pull-right">
                                 <div class="btn-group btn-group-sm tex-center" role="group" aria-label="...">
 
-                                    <button ng-disabled="!profileCtl.edit" class="btn btn-primary" ng-click="profileCtl.edit = !profileCtl.edit"><span class="glyphicon glyphicon-pencil"></span></button>
+                                    <button ng-disabled="!profileCtl.edit" class="btn btn-primary" ng-click="profileCtl.edit = !profileCtl.edit"><span class="glyphicon glyphicon-pencil"></span> Edit</button>
 
                                     <button 
                                             ng-disabled="profileCtl.edit" 
                                             type="submit" 
                                             class="btn btn-success"
-                                            ><span class="glyphicon glyphicon-floppy-disk"></span></button>
+                                            ><span class="glyphicon glyphicon-floppy-disk"></span> Save</button>
 
-                                    <button ng-disabled="profileCtl.edit" class="btn btn-warning"><span class="glyphicon glyphicon-floppy-remove"></span></button>
+                                    <button ng-disabled="profileCtl.edit" class="btn btn-warning"><span class="glyphicon glyphicon-floppy-remove"></span> Cancel</button>
                                 </div>
                             </div>
                         </form>
